@@ -4,8 +4,15 @@ import { ShoppingCart, Add, Remove } from '@mui/icons-material'
 
 const NavBar = ({ cartCount, cartData, changeQuantity }) => {
 	const [drawerOpen, setDrawerOpen] = useState(false)
-	const [total, setTotal] = useState(0)
 
+
+	function getTotal() {
+		const prices = cartData.map(product => product.price * product.quantity)
+		const sum = prices.reduce((accumulator, value) => {
+			return accumulator + value;
+		}, 0)
+		return sum
+	}
 	return (
 		<AppBar position="sticky">
 			<Toolbar sx={{ justifyContent: "space-between", padding: "5px"}}>
@@ -46,7 +53,7 @@ const NavBar = ({ cartCount, cartData, changeQuantity }) => {
 								<Grid container m={2} flexDirection="column">
 								{
 									cartData.map((product, index) => (
-									<Grid item mt={2} sx={{backgroundColor: "green"}} key={product.name}>
+									<Grid item mt={2} sx={{backgroundColor: "green"}} key={Math.random()}>
 										<Card>
 											<CardContent sx={{textAlign: "center"}}>
 												<Typography variant="h6">
@@ -86,7 +93,7 @@ const NavBar = ({ cartCount, cartData, changeQuantity }) => {
 								}					
 									<Grid item> 
 										<Typography>
-											Your total is ${total}
+											Your total is ${getTotal()}
 										</Typography>
 									</Grid>
 								</Grid>

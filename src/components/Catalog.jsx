@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from "./NavBar"
 import ProductsSection from "./ProductsSection"
 import { Box } from '@mui/material';
@@ -6,6 +6,10 @@ import { Box } from '@mui/material';
 const Catalog = () => {
 	const [cartCount, setCartCount] = useState(0)
 	const [cartData, setCartData] = useState([])
+
+	useEffect(()=> {
+		cartCount === 0 && setCartData([])
+	}, [cartCount])
 
 	function addItem() {
 		setCartCount(prevCount => prevCount + 1)
@@ -15,22 +19,17 @@ const Catalog = () => {
 		setCartData(prevData => [...prevData, {name, price, image, quantity}])
 	}
 
-	function changeQuantity(indexToIncrease, amount) {
-		setCartData(prevData => prevData.map((data, index) => {
-			if (index === indexToIncrease) {
-				if (data.quantity + amount !== 0) {
-					return {...data, quantity: data.quantity + amount}
-				}
-				//if the quantity was reduced to 0, delete from the state count and cart
-				else {
-					setCartCount(prevCount => prevCount - 1)
-					return {}
-				}
-			}
-			else {
-				return {...data}
-			}
-		}))
+	function changeQuantity(indexToChange, amount) {
+		// setCartData(prevData => 
+		// 	prevData.filter(product => product.quantity + amount !== 0).map((data, index) => {
+		// 	if (index === indexToChange) {
+		// 		return {...data, quantity: data.quantity + amount}
+		// 	}
+		// 	else {
+		// 		return {...data}
+		// 	}
+		// }))
+		// setCartCount(cartData.length)
 	}
 
 	return (
