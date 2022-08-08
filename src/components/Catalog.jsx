@@ -16,26 +16,46 @@ const Catalog = () => {
 	}
 
 	function addData(name, price, image, quantity) {
-		setCartData(prevData => [...prevData, {name, price, image, quantity}])
+		const alreadyHas = cartData.some(product => product.name === name)
+
+		if(!alreadyHas) {
+			setCartData(prevData => [...prevData, {name, price, image, quantity}])
+			addItem()
+		}
+		else return
 	}
 
 	function changeQuantity(indexToChange, amount) {
-		// setCartData(prevData => 
-		// 	prevData.filter(product => product.quantity + amount !== 0).map((data, index) => {
-		// 	if (index === indexToChange) {
-		// 		return {...data, quantity: data.quantity + amount}
-		// 	}
-		// 	else {
-		// 		return {...data}
-		// 	}
-		// }))
-		// setCartCount(cartData.length)
+		setCartData(prevData => 
+			prevData.map((data, index) => {
+			if (index === indexToChange) {
+				return {...data, quantity: data.quantity + amount}
+			}
+			else {
+				return {...data}
+			}
+		}))
 	}
+
+	function removeData(indexToRemove, nameToRemove) {
+		if (indexToRemove !== '') {
+			setCartData(prevState => prevState.filter((data, index) => index !== indexToRemove))
+			setCartCount(prevCount => prevCount - 1)
+		}
+		else if (indexToRemove === '' && nameToRemove !== '') {
+			setCartData(prevState => prevState.filter((data) => data.name !== nameToRemove))
+			setCartCount(prevCount => prevCount - 1)
+		}
+		else {
+			return 
+		}
+	}
+
 
 	return (
 		<Box>
-			<NavBar cartCount={cartCount} cartData={cartData} changeQuantity={changeQuantity} />
-			<ProductsSection addItem={addItem} addData={addData} />
+			<NavBar cartCount={cartCount} cartData={cartData} changeQuantity={changeQuantity} removeData={removeData} />
+			<ProductsSection addData={addData} />
 		</Box>
 	);
 };

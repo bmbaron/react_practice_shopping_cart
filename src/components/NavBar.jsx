@@ -2,33 +2,37 @@ import React, { useState } from 'react'
 import { Container, Divider, Grid, AppBar, Toolbar, IconButton, SwipeableDrawer, Badge, Typography, Card, CardContent, CardMedia } from '@mui/material'
 import { ShoppingCart, Add, Remove } from '@mui/icons-material'
 
-const NavBar = ({ cartCount, cartData, changeQuantity }) => {
+const NavBar = ({ cartCount, cartData, changeQuantity, removeData}) => {
 	const [drawerOpen, setDrawerOpen] = useState(false)
 
+	function handleRemove(event, index) {
+		event.preventDefault()
+		cartData[index].quantity === 1 ? removeData(index, '') : changeQuantity(index, -1)
+	}
 
 	function getTotal() {
 		const prices = cartData.map(product => product.price * product.quantity)
 		const sum = prices.reduce((accumulator, value) => {
 			return accumulator + value;
 		}, 0)
-		return sum
+		return sum.toFixed(2)
 	}
 	return (
-		<AppBar position="sticky">
+		<AppBar position="sticky" color="primary">
 			<Toolbar sx={{ justifyContent: "space-between", padding: "5px"}}>
-				<Typography>
-					Let's shop
+				<Typography ml={2}>
+					Decent Backpacks!
 				</Typography>
 				<IconButton
 					sx={{ 
 						backgroundColor: "white",
-						padding: "15px",
+						padding: "10px",
 						"&:hover":
 							{backgroundColor: "orange"}
 					}}
 					onClick={() => setDrawerOpen(prevValue => !prevValue)}
 				>
-					<Badge badgeContent={cartCount}>
+					<Badge badgeContent={cartCount} color="error">
 						<ShoppingCart sx={{ color: "black" }} fontSize="large"/>
 					</Badge>
 				</IconButton>
@@ -38,9 +42,9 @@ const NavBar = ({ cartCount, cartData, changeQuantity }) => {
 					anchor='right'
           open={drawerOpen}
         >
-					<Container sx={{height: "100%", width: "40vw"}} >
+					<Container sx={{height: "100%", width: {xs: "70vw", sm: "55vw", md: "40vw"} }} >
 							{cartCount === 0 ? 
-								<CardContent sx={{marginTop: "2rem", textAlign: "center"}}>
+								<CardContent sx={{marginTop: "2rem"}}>
 									<Typography variant="h4" sx={{marginBottom: "1rem"}}>
 										The cart is empty.
 									</Typography>
@@ -50,15 +54,17 @@ const NavBar = ({ cartCount, cartData, changeQuantity }) => {
 									</Typography>
 								</CardContent>
 							:
-								<Grid container m={2} flexDirection="column">
+								<Grid container mt={2} flexDirection="column">
 								{
 									cartData.map((product, index) => (
 									<Grid item mt={2} sx={{backgroundColor: "green"}} key={Math.random()}>
 										<Card>
 											<CardContent sx={{textAlign: "center"}}>
-												<Typography variant="h6">
-													{product.name}
-												</Typography>
+												<Grid container sx={{justifyContent: "center"}}>
+													<Typography sx={{width: {sm: "300px", xs: "200px"} }} variant="h6" noWrap>
+														{product.name}
+													</Typography>
+												</Grid>
 												<Container sx={{display: "flex", justifyContent: "space-between"}}  >
 													<Typography variant="h8">
 														Quantity: {product.quantity}
@@ -82,7 +88,7 @@ const NavBar = ({ cartCount, cartData, changeQuantity }) => {
 													sx={{objectFit: "contain"}}
 												/>
 												<IconButton
-													onClick={() => changeQuantity(index, -1)}
+													onClick={(e) => handleRemove(e, index)}
 												>
 													<Remove fontSize="large" />
 												</IconButton>
@@ -92,8 +98,11 @@ const NavBar = ({ cartCount, cartData, changeQuantity }) => {
 									))
 								}					
 									<Grid item> 
-										<Typography>
-											Your total is ${getTotal()}
+										<Typography mt={4} sx={{fontSize: "1.5rem", textAlign: "center"}}>
+											Your total is
+										</Typography>
+										<Typography mb={3} sx={{fontSize: "1.5rem", color: "rosybrown", fontWeight: "bold", textAlign: "center"}}>
+											<strong>${getTotal()}</strong>
 										</Typography>
 									</Grid>
 								</Grid>

@@ -3,7 +3,7 @@ import Product from "./Product"
 import { Paper, Grid } from '@mui/material'
 import { data } from "../data/productData"
 
-const ProductsSection = ({ addItem, addData}) => {
+const ProductsSection = ({ addData }) => {
 	const productArray = data.map((product) => {
 		return <Product
 						key={product.price}
@@ -12,7 +12,6 @@ const ProductsSection = ({ addItem, addData}) => {
 						price={product.price}
 						image={product.image}
 						quantity={1}
-						addItem={addItem}
 						addData={addData}
 					/>
 	})
