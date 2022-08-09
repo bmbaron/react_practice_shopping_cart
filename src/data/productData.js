@@ -14,7 +14,7 @@ const data = [
 	{
 		name: "Utility Pack for Trekking",
 		description: "This is a product description for the product you should buy",
-		price: 64.99,
+		price: 60.99,
 		image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtLYMCvQyuUXVJmEAawUJjlcvgzPoUuwn9Yg&usqp=CAU",
 	},
 	{
@@ -26,7 +26,7 @@ const data = [
 	{
 		name: "Minimalistic Everyday Pack",
 		description: "This is a product description for the product you should buy",
-		price: 52.49,
+		price: 42.49,
 		image: "https://shop.hardloop.fr/157496-large_default/patagonia-refugio-pack-28l-backpack.jpg",
 	},
 	{
@@ -50,19 +50,19 @@ const data = [
 	{
 		name: "American Camping Pack",
 		description: "This is a product description for the product you should buy",
-		price: 34.49,
-		image: "https://columbia.scene7.com/is/image/ColumbiaSportswear2/1981401_696_f?$x1_grid$&v=1642418206",
+		price: 35.49,
+		image: "https://i5.walmartimages.com/asr/03f16d15-5397-4ec9-87c1-8ece011eff3a_1.825ab89de049cccb23f41dcf787bfc6e.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
 	},
 	{
 		name: "Classic Teal School Pack",
 		description: "This is a product description for the product you should buy",
-		price: 39.99,
-		image: "https://media.wired.com/photos/5b72139a4177c301e3b9b193/master/pass/Jansport_05.jpg",
+		price: 29.00,
+		image: "https://cf.shopee.vn/file/305671283fa2cbf9ec24f41151bd853c",
 	},
 	{
 		name: "Fashion Rucksack Pack",
 		description: "This is a product description for the product you should buy",
-		price: 43.49,
+		price: 43.60,
 		image: "https://www.thriftynorthwestmom.com/wp-content/uploads/2020/07/Screen-Shot-2021-02-16-at-8.55.28-PM.png"
 	},
 	{

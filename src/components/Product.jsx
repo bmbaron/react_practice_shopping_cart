@@ -13,7 +13,7 @@ const Product = ({ name, description, price, image, quantity, addData }) => {
 	
 	return (
 		<Grid item xs={12} sm={6} md={4} display="flex" justifyContent="center">
-			<Card sx={{ margin: "3rem", marginLeft: "1rem", marginRight: "1rem" }}>
+			<Card sx={{ margin: "2rem", marginLeft: "1rem", marginRight: "1rem" }}>
 				<CardContent sx={{ textAlign: "center"}}>
 					<Accordion sx={{backgroundColor: "#f5f5f5", maxWidth: "300px"}}>
 						<AccordionSummary
