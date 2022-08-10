@@ -3,7 +3,7 @@ import { Container, Divider, Grid, AppBar, Toolbar, IconButton, Button, Swipeabl
 import { ShoppingCart, Add, Remove } from '@mui/icons-material'
 
 const NavBar = ({ cartCount, cartData, changeQuantity, removeData}) => {
-	const [drawerOpen, setDrawerOpen] = useState(true)
+	const [drawerOpen, setDrawerOpen] = useState(false)
 
 	function handleRemove(event, index) {
 		event.preventDefault()
@@ -31,7 +31,7 @@ const NavBar = ({ cartCount, cartData, changeQuantity, removeData}) => {
 			padding: "10px",
 			"&:hover":
 			{
-				backgroundColor: "orange"
+				backgroundColor: "orange",
 			}
 		},
 		drawerContainer: {
@@ -40,7 +40,8 @@ const NavBar = ({ cartCount, cartData, changeQuantity, removeData}) => {
 		},
 		card: {
 			justifyContent: "center",
-			marginBottom: "1rem"
+			marginBottom: "1rem",
+			width: {xs: "60vw"}
 		},
 		cardContent: {
 			justifyContent: "center",
@@ -57,7 +58,7 @@ const NavBar = ({ cartCount, cartData, changeQuantity, removeData}) => {
 		},
 		cardEditSection: {
 			display: "flex",
-			width: {xs: "50vw", sm: "300px"}
+			width: {xs: "60vw", sm: "300px"}
 		},
 		cardAddSubtractButtons: {
 			backgroundColor: "#f5f5f5",

@@ -51,11 +51,10 @@ const Catalog = () => {
 		}
 	}
 
-
 	return (
 		<Box>
 			<NavBar cartCount={cartCount} cartData={cartData} changeQuantity={changeQuantity} removeData={removeData} />
-			<ProductsSection addData={addData} />
+			<ProductsSection addData={addData} cartData={cartData} />
 		</Box>
 	);
 };

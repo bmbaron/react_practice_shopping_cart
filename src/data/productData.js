@@ -56,19 +56,19 @@ const data = [
 	{
 		name: "Classic Teal School Pack",
 		description: "This is a product description for the product you should buy",
-		price: 29.00,
+		price: 29.60,
 		image: "https://cf.shopee.vn/file/305671283fa2cbf9ec24f41151bd853c",
 	},
 	{
 		name: "Fashion Rucksack Pack",
 		description: "This is a product description for the product you should buy",
-		price: 43.60,
+		price: 43.99,
 		image: "https://www.thriftynorthwestmom.com/wp-content/uploads/2020/07/Screen-Shot-2021-02-16-at-8.55.28-PM.png"
 	},
 	{
 		name: "Fun Rainbow School Pack",
 		description: "This is a product description for the product you should buy",
-		price: 29.99,
+		price: 30.00,
 		image: "https://cdni.llbean.net/is/image/wim/507647_50795_42?wid=262&hei=302&defaultImage=llbprod/A0211793_2&",
 	},
 ]
