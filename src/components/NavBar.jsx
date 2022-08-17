@@ -36,12 +36,12 @@ const NavBar = ({ cartCount, cartData, changeQuantity, removeData}) => {
 		},
 		drawerContainer: {
 			height: "100%",
-			width: {xs: "70vw", sm: "400px"}
+			width: {xs: "70vw", sm: "450px"}
 		},
 		card: {
 			justifyContent: "center",
 			marginBottom: "1rem",
-			width: {xs: "60vw"}
+			width: {xs: "60vw",  sm: "400px"}
 		},
 		cardContent: {
 			justifyContent: "center",
